@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+{% block title %} Clients {% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                    <a href="/home.html">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="/dashboard.html">Track Target</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Clients</li>
+            </ol>
+        </nav>
+        <h1 class="h4">Fiche du Client</h1>
+        <p class="mb-0">Trouvez tous les détails ici.</p>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="h5 mb-4">Informations du client</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Nom :</strong> {{ client.nom }}</li>
+          <li class="list-group-item"><strong>Domaine d'activité :</strong> {{ client.domaine }}</li>
+          <li class="list-group-item"><strong>Entreprise :</strong> {{ client.projet_client }}</li>
+          <li class="list-group-item"><strong>Région :</strong> {{ client.region }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="h5 mb-4">Informations de contact</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Adresse :</strong> {{ client.adresse }}</li>
+          <li class="list-group-item"><strong>Tél :</strong> {{ client.tel }}</li>
+          <li class="list-group-item"><strong>Tél 2 :</strong> {{ client.tel2 }}</li>
+          <li class="list-group-item"><strong>Email :</strong> {{ client.email }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="h5 mb-4">Projets associés</h2>
+        {% if client.projet_asso %}
+        <p class="text-muted">Projet : {{ client.projet_asso }}</p>
+        <p class="text-muted">User : {{ client.user_asso }}</p>
+        {% else %}
+        <p class="text-muted">Aucun projet associé.</p>
+        <p class="text-muted">User : {{ client.user_asso }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <a href="/clients.html" title="Page Clients" class="btn btn-secondary">Retour</a>
+    <a href="{% url 'update-client' client.id %}" title="Modifier" class="btn btn-primary">Modifier</a>
+    <a href="{% url 'delete-client' client.id %}" title="Supprimer" class="btn btn-danger">Supprimer</a>
+  </div>
+</div>
+</div>
+{% endblock %}

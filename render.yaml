@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+services:
+  - type: web
+    name: dashtrack
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn dashtrack.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: dashtrack.settings
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: tracktarget.onrender.com
+=======
+services:
+  - type: web
+    name: dashtrack
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn dashtrack.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: dashtrack.settings
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: tracktarget.onrender.com
+>>>>>>> 20d5167c9ddd92b1d041faaeff504f70ce446717

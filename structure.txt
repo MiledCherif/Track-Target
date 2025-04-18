@@ -1,0 +1,805 @@
+Structure du dossier pour le volume Windows
+Le numéro de série du volume est EE27-AF59
+C:.
+¦   .env
+¦   .gitignore
+¦   db.sqlite3
+¦   LICENSE
+¦   manage.py
+¦   Procfile
+¦   render.yaml
+¦   requirements.txt
+¦   structure.txt
+¦   
++---compressed
++---dashtrack
+¦   ¦   asgi.py
+¦   ¦   settings.py
+¦   ¦   urls.py
+¦   ¦   wsgi.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---__pycache__
+¦           settings.cpython-310.pyc
+¦           settings.cpython-313.pyc
+¦           urls.cpython-310.pyc
+¦           urls.cpython-313.pyc
+¦           wsgi.cpython-310.pyc
+¦           wsgi.cpython-313.pyc
+¦           __init__.cpython-310.pyc
+¦           __init__.cpython-313.pyc
+¦           
++---media
+¦   +---default_images
+¦   ¦       avatar.jpg
+¦   ¦       
+¦   +---profile_images
+¦           185641735_977715759642663_1088229263476526469_n.jpg
+¦           20190629_223609.jpg
+¦           20190629_223609_LwculBn.jpg
+¦           20191019_220711.jpg
+¦           20191124_131913.jpg
+¦           20200329_155633.jpg
+¦           20200417_145205.jpg
+¦           273047015_991472034799842_3751661923139111820_n.jpg
+¦           299178470_1104532473503586_96889889186313484_n.jpg
+¦           318897662_627650712492761_2728225860728427247_n.jpg
+¦           46933046_342825993201907_9174342575694282752_n.jpg
+¦           46933046_342825993201907_9174342575694282752_n_QtkIjjv.jpg
+¦           51080378_2277017815920303_8075359461377861772_n.jpg
+¦           51080378_2277017815920303_8075359461377861772_n_Jxlf92x.jpg
+¦           51914372_809432672740085_8234660109816917247_n.jpg
+¦           66712018_384897622229511_4165853342062346240_n.jpg
+¦           75403235_548209465724706_7371569163170480128_n.jpg
+¦           elephant-1822636_1920.jpg
+¦           op.jpg
+¦           photo_pro.png
+¦           received_197771762042146.jpeg
+¦           received_424759861800202.jpeg
+¦           received_4442321505832762.jpeg
+¦           received_4442321505832762_Tezzf12.jpeg
+¦           téléchargement.jpeg
+¦           
++---members
+¦   ¦   admin.py
+¦   ¦   apps.py
+¦   ¦   forms.py
+¦   ¦   models.py
+¦   ¦   tests.py
+¦   ¦   urls.py
+¦   ¦   views.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---migrations
+¦   ¦   ¦   0001_initial.py
+¦   ¦   ¦   0002_alter_profile_profile_image.py
+¦   ¦   ¦   0003_profile_group.py
+¦   ¦   ¦   0004_friend.py
+¦   ¦   ¦   0005_profile_friends.py
+¦   ¦   ¦   0006_remove_friend_status.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           0001_initial.cpython-310.pyc
+¦   ¦           0001_initial.cpython-313.pyc
+¦   ¦           0002_alter_profile_profile_image.cpython-310.pyc
+¦   ¦           0002_alter_profile_profile_image.cpython-313.pyc
+¦   ¦           0003_profile_group.cpython-310.pyc
+¦   ¦           0003_profile_group.cpython-313.pyc
+¦   ¦           0004_friend.cpython-310.pyc
+¦   ¦           0004_friend.cpython-313.pyc
+¦   ¦           0005_profile_friends.cpython-310.pyc
+¦   ¦           0005_profile_friends.cpython-313.pyc
+¦   ¦           0006_remove_friend_status.cpython-310.pyc
+¦   ¦           0006_remove_friend_status.cpython-313.pyc
+¦   ¦           __init__.cpython-310.pyc
+¦   ¦           __init__.cpython-313.pyc
+¦   ¦           
+¦   +---templates
+¦   ¦   +---authentication
+¦   ¦           login.html
+¦   ¦           register_user.html
+¦   ¦           settings.html
+¦   ¦           
+¦   +---__pycache__
+¦           admin.cpython-310.pyc
+¦           admin.cpython-313.pyc
+¦           apps.cpython-310.pyc
+¦           apps.cpython-313.pyc
+¦           forms.cpython-310.pyc
+¦           forms.cpython-313.pyc
+¦           models.cpython-310.pyc
+¦           models.cpython-313.pyc
+¦           urls.cpython-310.pyc
+¦           urls.cpython-313.pyc
+¦           views.cpython-310.pyc
+¦           views.cpython-313.pyc
+¦           __init__.cpython-310.pyc
+¦           __init__.cpython-313.pyc
+¦           
++---profile_images
+¦       273047015_991472034799842_3751661923139111820_n.jpg
+¦       
++---static
+¦   +---website
+¦       +---charts
+¦       ¦       campaign_chart_1744406612.png
+¦       ¦       graphique_1744406612.png
+¦       ¦       pie_1744406612.png
+¦       ¦       
+¦       +---css
+¦       ¦       bootstrap.min.css
+¦       ¦       cssmap.css
+¦       ¦       volt.css
+¦       ¦       volt.css.map
+¦       ¦       volt.min.css
+¦       ¦       
+¦       +---img
+¦       ¦   ¦   marker.svg
+¦       ¦   ¦   mockup-calendar-presentation.png
+¦       ¦   ¦   mockup-kanban-presentation.png
+¦       ¦   ¦   mockup-map-presentation.png
+¦       ¦   ¦   mockup-presentation.png
+¦       ¦   ¦   paypal-logo.svg
+¦       ¦   ¦   profile-cover.jpg
+¦       ¦   ¦   themesberg-logo-alt.svg
+¦       ¦   ¦   themesberg-mockup.jpg
+¦       ¦   ¦   themesberg.svg
+¦       ¦   ¦   UseCase TrackTarget.png
+¦       ¦   ¦   
+¦       ¦   +---brand
+¦       ¦   ¦       Capture d’écran (47).png
+¦       ¦   ¦       Capture d’écran (48).png
+¦       ¦   ¦       Capture d’écran (49).png
+¦       ¦   ¦       dark.svg
+¦       ¦   ¦       icon16.svg
+¦       ¦   ¦       icon32.png
+¦       ¦   ¦       light.svg
+¦       ¦   ¦       Target Track.ai
+¦       ¦   ¦       
+¦       ¦   +---favicon
+¦       ¦   ¦       android-chrome-192x192.png
+¦       ¦   ¦       android-chrome-512x512.png
+¦       ¦   ¦       apple-touch-icon.png
+¦       ¦   ¦       browserconfig.xml
+¦       ¦   ¦       favicon-16x16.png
+¦       ¦   ¦       favicon-32x32.png
+¦       ¦   ¦       favicon.ico
+¦       ¦   ¦       icon120.png
+¦       ¦   ¦       icon16.png
+¦       ¦   ¦       icon32.png
+¦       ¦   ¦       manifest.json
+¦       ¦   ¦       mstile-150x150.png
+¦       ¦   ¦       safari-pinned-tab.svg
+¦       ¦   ¦       site.webmanifest
+¦       ¦   ¦       
+¦       ¦   +---flags
+¦       ¦   ¦       aland-islands.svg
+¦       ¦   ¦       albania.svg
+¦       ¦   ¦       algeria.svg
+¦       ¦   ¦       american-samoa.svg
+¦       ¦   ¦       anguilla.svg
+¦       ¦   ¦       argentina.svg
+¦       ¦   ¦       armenia.svg
+¦       ¦   ¦       australia.svg
+¦       ¦   ¦       austria.svg
+¦       ¦   ¦       azerbaijan.svg
+¦       ¦   ¦       bahrain.svg
+¦       ¦   ¦       belarus.svg
+¦       ¦   ¦       belgium.svg
+¦       ¦   ¦       bolivia.svg
+¦       ¦   ¦       bosnia-and-herzegovina.svg
+¦       ¦   ¦       botswana.svg
+¦       ¦   ¦       brazil.svg
+¦       ¦   ¦       bulgaria.svg
+¦       ¦   ¦       cambodia.svg
+¦       ¦   ¦       cameroon.svg
+¦       ¦   ¦       canada.svg
+¦       ¦   ¦       chile.svg
+¦       ¦   ¦       china.svg
+¦       ¦   ¦       colombia.svg
+¦       ¦   ¦       costa-rica.svg
+¦       ¦   ¦       croatia.svg
+¦       ¦   ¦       cuba.svg
+¦       ¦   ¦       cyprus.svg
+¦       ¦   ¦       czech-republic.svg
+¦       ¦   ¦       denmark.svg
+¦       ¦   ¦       ecuador.svg
+¦       ¦   ¦       egypt.svg
+¦       ¦   ¦       estonia.svg
+¦       ¦   ¦       ethiopia.svg
+¦       ¦   ¦       finland.svg
+¦       ¦   ¦       france.svg
+¦       ¦   ¦       georgia.svg
+¦       ¦   ¦       germany.svg
+¦       ¦   ¦       greece.svg
+¦       ¦   ¦       haiti.svg
+¦       ¦   ¦       hong-kong.svg
+¦       ¦   ¦       hungary.svg
+¦       ¦   ¦       iceland.svg
+¦       ¦   ¦       india.svg
+¦       ¦   ¦       indonesia.svg
+¦       ¦   ¦       iran.svg
+¦       ¦   ¦       iraq.svg
+¦       ¦   ¦       ireland.svg
+¦       ¦   ¦       israel.svg
+¦       ¦   ¦       italy.svg
+¦       ¦   ¦       ivory-coast.svg
+¦       ¦   ¦       japan.svg
+¦       ¦   ¦       kazakhstan.svg
+¦       ¦   ¦       kuwait.svg
+¦       ¦   ¦       latvia.svg
+¦       ¦   ¦       liechtenstein.svg
+¦       ¦   ¦       lithuania.svg
+¦       ¦   ¦       luxembourg.svg
+¦       ¦   ¦       malaysia.svg
+¦       ¦   ¦       mexico.svg
+¦       ¦   ¦       mongolia.svg
+¦       ¦   ¦       montenegro.svg
+¦       ¦   ¦       nauru.svg
+¦       ¦   ¦       netherlands.svg
+¦       ¦   ¦       nicaragua.svg
+¦       ¦   ¦       nigeria.svg
+¦       ¦   ¦       norway.svg
+¦       ¦   ¦       pakistan.svg
+¦       ¦   ¦       panama.svg
+¦       ¦   ¦       paraguay.svg
+¦       ¦   ¦       peru.svg
+¦       ¦   ¦       philippines.svg
+¦       ¦   ¦       portugal.svg
+¦       ¦   ¦       puerto-rico.svg
+¦       ¦   ¦       republic-of-macedonia.svg
+¦       ¦   ¦       republic-of-poland.svg
+¦       ¦   ¦       romania.svg
+¦       ¦   ¦       russia.svg
+¦       ¦   ¦       serbia.svg
+¦       ¦   ¦       singapore.svg
+¦       ¦   ¦       slovakia.svg
+¦       ¦   ¦       slovenia.svg
+¦       ¦   ¦       south-africa.svg
+¦       ¦   ¦       south-korea.svg
+¦       ¦   ¦       spain.svg
+¦       ¦   ¦       sri-lanka.svg
+¦       ¦   ¦       sweden.svg
+¦       ¦   ¦       switzerland.svg
+¦       ¦   ¦       taiwan.svg
+¦       ¦   ¦       thailand.svg
+¦       ¦   ¦       tunisia.svg
+¦       ¦   ¦       turkey.svg
+¦       ¦   ¦       ukraine.svg
+¦       ¦   ¦       united-arab-emirates.svg
+¦       ¦   ¦       united-kingdom.svg
+¦       ¦   ¦       united-states-of-america.svg
+¦       ¦   ¦       united-states.svg
+¦       ¦   ¦       uruguay.svg
+¦       ¦   ¦       venezuela.svg
+¦       ¦   ¦       vietnam.svg
+¦       ¦   ¦       
+¦       ¦   +---icons
+¦       ¦   ¦       github.svg
+¦       ¦   ¦       google-tag-manager.svg
+¦       ¦   ¦       google_analytics.svg
+¦       ¦   ¦       
+¦       ¦   +---illustrations
+¦       ¦   ¦       404.svg
+¦       ¦   ¦       500.svg
+¦       ¦   ¦       abstract-logo.zip
+¦       ¦   ¦       bs5-illustrations.svg
+¦       ¦   ¦       design-test.svg
+¦       ¦   ¦       essai.png
+¦       ¦   ¦       essai.svg
+¦       ¦   ¦       illu.png
+¦       ¦   ¦       illu2.png
+¦       ¦   ¦       loginfirst.png
+¦       ¦   ¦       loginfirst2.png
+¦       ¦   ¦       made-outer-sans.zip
+¦       ¦   ¦       signin.svg
+¦       ¦   ¦       
+¦       ¦   +---pages
+¦       ¦   ¦       404.jpg
+¦       ¦   ¦       500.jpg
+¦       ¦   ¦       forgot-password.jpg
+¦       ¦   ¦       lock.jpg
+¦       ¦   ¦       mockup-presentation.png
+¦       ¦   ¦       overview.jpg
+¦       ¦   ¦       reset-password.jpg
+¦       ¦   ¦       settings.jpg
+¦       ¦   ¦       sign-in.jpg
+¦       ¦   ¦       sign-up.jpg
+¦       ¦   ¦       transactions.jpg
+¦       ¦   ¦       
+¦       ¦   +---team
+¦       ¦   ¦       avatar.jpg
+¦       ¦   ¦       profile-picture-1.jpg
+¦       ¦   ¦       profile-picture-2.jpg
+¦       ¦   ¦       profile-picture-3.jpg
+¦       ¦   ¦       profile-picture-4.jpg
+¦       ¦   ¦       profile-picture-5.jpg
+¦       ¦   ¦       profile-picture-6.jpg
+¦       ¦   ¦       
+¦       ¦   +---technologies
+¦       ¦           bootstrap-5-logo.svg
+¦       ¦           django-logo.svg
+¦       ¦           flask-logo.svg
+¦       ¦           react-logo-primary.svg
+¦       ¦           react-logo.svg
+¦       ¦           vuejs-logo.svg
+¦       ¦           
+¦       +---js
+¦       ¦       bootstrap.bundle.min.js
+¦       ¦       bootstrap.esm.min.js
+¦       ¦       bootstrap.min.js
+¦       ¦       jsmap.js
+¦       ¦       volt.js
+¦       ¦       
+¦       +---scss
+¦       ¦   ¦   volt.scss
+¦       ¦   ¦   
+¦       ¦   +---custom
+¦       ¦   ¦       _variables.scss
+¦       ¦   ¦       
+¦       ¦   +---volt
+¦       ¦       ¦   _components.scss
+¦       ¦       ¦   _forms.scss
+¦       ¦       ¦   _functions.scss
+¦       ¦       ¦   _layout.scss
+¦       ¦       ¦   _mixins.scss
+¦       ¦       ¦   _utilities.scss
+¦       ¦       ¦   _variables.scss
+¦       ¦       ¦   _vendor.scss
+¦       ¦       ¦   
+¦       ¦       +---components
+¦       ¦       ¦       _accordions.scss
+¦       ¦       ¦       _alerts.scss
+¦       ¦       ¦       _animations.scss
+¦       ¦       ¦       _avatars.scss
+¦       ¦       ¦       _badge.scss
+¦       ¦       ¦       _body.scss
+¦       ¦       ¦       _breadcrumb.scss
+¦       ¦       ¦       _buttons.scss
+¦       ¦       ¦       _card.scss
+¦       ¦       ¦       _carousel.scss
+¦       ¦       ¦       _charts.scss
+¦       ¦       ¦       _close.scss
+¦       ¦       ¦       _custom-forms.scss
+¦       ¦       ¦       _datepicker.scss
+¦       ¦       ¦       _dropdown.scss
+¦       ¦       ¦       _icons.scss
+¦       ¦       ¦       _images.scss
+¦       ¦       ¦       _list-group.scss
+¦       ¦       ¦       _modal.scss
+¦       ¦       ¦       _nav.scss
+¦       ¦       ¦       _pagination.scss
+¦       ¦       ¦       _popover.scss
+¦       ¦       ¦       _progress.scss
+¦       ¦       ¦       _scrollbar.scss
+¦       ¦       ¦       _shapes.scss
+¦       ¦       ¦       _steps.scss
+¦       ¦       ¦       _tables.scss
+¦       ¦       ¦       _timelines.scss
+¦       ¦       ¦       _tooltip.scss
+¦       ¦       ¦       _type.scss
+¦       ¦       ¦       
+¦       ¦       +---forms
+¦       ¦       ¦       _form-check.scss
+¦       ¦       ¦       _form-control.scss
+¦       ¦       ¦       _form-select.scss
+¦       ¦       ¦       _input-group.scss
+¦       ¦       ¦       
+¦       ¦       +---layout
+¦       ¦       ¦       _footer.scss
+¦       ¦       ¦       _navbar.scss
+¦       ¦       ¦       _section.scss
+¦       ¦       ¦       _sidebar.scss
+¦       ¦       ¦       _sidenav.scss
+¦       ¦       ¦       
+¦       ¦       +---mixins
+¦       ¦               _animations.scss
+¦       ¦               _background-variant.scss
+¦       ¦               _icon.scss
+¦       ¦               _modals.scss
+¦       ¦               _popover.scss
+¦       ¦               _transform.scss
+¦       ¦               _utilities.scss
+¦       ¦               
+¦       +---vendor
+¦           +---@popperjs
+¦           ¦   +---core
+¦           ¦       +---dist
+¦           ¦           +---cjs
+¦           ¦           ¦       popper-base.js
+¦           ¦           ¦       popper-base.js.flow
+¦           ¦           ¦       popper-lite.js
+¦           ¦           ¦       popper-lite.js.flow
+¦           ¦           ¦       popper.js
+¦           ¦           ¦       popper.js.flow
+¦           ¦           ¦       
+¦           ¦           +---esm
+¦           ¦           ¦   ¦   createPopper.js
+¦           ¦           ¦   ¦   enums.js
+¦           ¦           ¦   ¦   index.js
+¦           ¦           ¦   ¦   popper-base.js
+¦           ¦           ¦   ¦   popper-lite.js
+¦           ¦           ¦   ¦   popper.js
+¦           ¦           ¦   ¦   types.js
+¦           ¦           ¦   ¦   
+¦           ¦           ¦   +---dom-utils
+¦           ¦           ¦   ¦       contains.js
+¦           ¦           ¦   ¦       getBoundingClientRect.js
+¦           ¦           ¦   ¦       getClippingRect.js
+¦           ¦           ¦   ¦       getCompositeRect.js
+¦           ¦           ¦   ¦       getComputedStyle.js
+¦           ¦           ¦   ¦       getDocumentElement.js
+¦           ¦           ¦   ¦       getDocumentRect.js
+¦           ¦           ¦   ¦       getHTMLElementScroll.js
+¦           ¦           ¦   ¦       getLayoutRect.js
+¦           ¦           ¦   ¦       getNodeName.js
+¦           ¦           ¦   ¦       getNodeScroll.js
+¦           ¦           ¦   ¦       getOffsetParent.js
+¦           ¦           ¦   ¦       getParentNode.js
+¦           ¦           ¦   ¦       getScrollParent.js
+¦           ¦           ¦   ¦       getViewportRect.js
+¦           ¦           ¦   ¦       getWindow.js
+¦           ¦           ¦   ¦       getWindowScroll.js
+¦           ¦           ¦   ¦       getWindowScrollBarX.js
+¦           ¦           ¦   ¦       instanceOf.js
+¦           ¦           ¦   ¦       isScrollParent.js
+¦           ¦           ¦   ¦       isTableElement.js
+¦           ¦           ¦   ¦       listScrollParents.js
+¦           ¦           ¦   ¦       
+¦           ¦           ¦   +---modifiers
+¦           ¦           ¦   ¦       applyStyles.js
+¦           ¦           ¦   ¦       arrow.js
+¦           ¦           ¦   ¦       computeStyles.js
+¦           ¦           ¦   ¦       eventListeners.js
+¦           ¦           ¦   ¦       flip.js
+¦           ¦           ¦   ¦       hide.js
+¦           ¦           ¦   ¦       index.js
+¦           ¦           ¦   ¦       offset.js
+¦           ¦           ¦   ¦       popperOffsets.js
+¦           ¦           ¦   ¦       preventOverflow.js
+¦           ¦           ¦   ¦       
+¦           ¦           ¦   +---utils
+¦           ¦           ¦           computeAutoPlacement.js
+¦           ¦           ¦           computeOffsets.js
+¦           ¦           ¦           debounce.js
+¦           ¦           ¦           detectOverflow.js
+¦           ¦           ¦           expandToHashMap.js
+¦           ¦           ¦           format.js
+¦           ¦           ¦           getAltAxis.js
+¦           ¦           ¦           getAltLen.js
+¦           ¦           ¦           getBasePlacement.js
+¦           ¦           ¦           getFreshSideObject.js
+¦           ¦           ¦           getMainAxisFromPlacement.js
+¦           ¦           ¦           getOppositePlacement.js
+¦           ¦           ¦           getOppositeVariationPlacement.js
+¦           ¦           ¦           getVariation.js
+¦           ¦           ¦           math.js
+¦           ¦           ¦           mergeByName.js
+¦           ¦           ¦           mergePaddingObject.js
+¦           ¦           ¦           orderModifiers.js
+¦           ¦           ¦           rectToClientRect.js
+¦           ¦           ¦           uniqueBy.js
+¦           ¦           ¦           validateModifiers.js
+¦           ¦           ¦           within.js
+¦           ¦           ¦           
+¦           ¦           +---umd
+¦           ¦                   popper-base.min.js
+¦           ¦                   popper-base.min.js.flow
+¦           ¦                   popper-lite.min.js
+¦           ¦                   popper-lite.min.js.flow
+¦           ¦                   popper.min.js
+¦           ¦                   popper.min.js.flow
+¦           ¦                   
+¦           +---bootstrap
+¦           ¦   +---dist
+¦           ¦       +---css
+¦           ¦       ¦       bootstrap-grid.min.css
+¦           ¦       ¦       bootstrap-grid.rtl.min.css
+¦           ¦       ¦       bootstrap-reboot.min.css
+¦           ¦       ¦       bootstrap-reboot.rtl.min.css
+¦           ¦       ¦       bootstrap-utilities.min.css
+¦           ¦       ¦       bootstrap-utilities.rtl.min.css
+¦           ¦       ¦       bootstrap.min.css
+¦           ¦       ¦       bootstrap.rtl.min.css
+¦           ¦       ¦       
+¦           ¦       +---js
+¦           ¦               bootstrap.bundle.min.js
+¦           ¦               bootstrap.esm.min.js
+¦           ¦               bootstrap.min.js
+¦           ¦               
+¦           +---chartist
+¦           ¦   +---dist
+¦           ¦           chartist.min.css
+¦           ¦           chartist.min.js
+¦           ¦           
+¦           +---chartist-plugin-tooltips
+¦           ¦   +---dist
+¦           ¦           chartist-plugin-tooltip.css
+¦           ¦           chartist-plugin-tooltip.min.js
+¦           ¦           
+¦           +---notyf
+¦           ¦       notyf.es.js
+¦           ¦       notyf.min.css
+¦           ¦       notyf.min.js
+¦           ¦       notyf.umd.js
+¦           ¦       
+¦           +---nouislider
+¦           ¦   +---distribute
+¦           ¦           nouislider.min.css
+¦           ¦           nouislider.min.js
+¦           ¦           nouislider.min.mjs
+¦           ¦           nouislider.mjs
+¦           ¦           
+¦           +---onscreen
+¦           ¦   +---dist
+¦           ¦           index.js
+¦           ¦           on-screen.es6.js
+¦           ¦           on-screen.umd.min.js
+¦           ¦           
+¦           +---simplebar
+¦           ¦   +---dist
+¦           ¦           simplebar-core.esm.js
+¦           ¦           simplebar.esm.js
+¦           ¦           simplebar.min.css
+¦           ¦           simplebar.min.js
+¦           ¦           simplebar.umd.js
+¦           ¦           
+¦           +---smooth-scroll
+¦           ¦   +---dist
+¦           ¦           smooth-scroll.min.js
+¦           ¦           smooth-scroll.polyfills.min.js
+¦           ¦           
+¦           +---sweetalert2
+¦           ¦   +---dist
+¦           ¦           sweetalert2.all.min.js
+¦           ¦           sweetalert2.min.css
+¦           ¦           sweetalert2.min.js
+¦           ¦           
+¦           +---vanillajs-datepicker
+¦           ¦   +---dist
+¦           ¦       +---css
+¦           ¦       ¦       datepicker-bs4.min.css
+¦           ¦       ¦       datepicker-bulma.min.css
+¦           ¦       ¦       datepicker-foundation.min.css
+¦           ¦       ¦       datepicker.min.css
+¦           ¦       ¦       
+¦           ¦       +---js
+¦           ¦           ¦   datepicker-full.min.js
+¦           ¦           ¦   datepicker.min.js
+¦           ¦           ¦   
+¦           ¦           +---locales
+¦           ¦                   ar-tn.js
+¦           ¦                   ar.js
+¦           ¦                   az.js
+¦           ¦                   bg.js
+¦           ¦                   bm.js
+¦           ¦                   bn.js
+¦           ¦                   br.js
+¦           ¦                   bs.js
+¦           ¦                   ca.js
+¦           ¦                   cs.js
+¦           ¦                   cy.js
+¦           ¦                   da.js
+¦           ¦                   de.js
+¦           ¦                   el.js
+¦           ¦                   en-AU.js
+¦           ¦                   en-CA.js
+¦           ¦                   en-GB.js
+¦           ¦                   en-IE.js
+¦           ¦                   en-NZ.js
+¦           ¦                   en-ZA.js
+¦           ¦                   eo.js
+¦           ¦                   es.js
+¦           ¦                   et.js
+¦           ¦                   eu.js
+¦           ¦                   fa.js
+¦           ¦                   fi.js
+¦           ¦                   fo.js
+¦           ¦                   fr-CH.js
+¦           ¦                   fr.js
+¦           ¦                   gl.js
+¦           ¦                   he.js
+¦           ¦                   hi.js
+¦           ¦                   hr.js
+¦           ¦                   hu.js
+¦           ¦                   hy.js
+¦           ¦                   id.js
+¦           ¦                   is.js
+¦           ¦                   it-CH.js
+¦           ¦                   it.js
+¦           ¦                   ja.js
+¦           ¦                   ka.js
+¦           ¦                   kk.js
+¦           ¦                   km.js
+¦           ¦                   ko.js
+¦           ¦                   lt.js
+¦           ¦                   lv.js
+¦           ¦                   me.js
+¦           ¦                   mk.js
+¦           ¦                   mn.js
+¦           ¦                   mr.js
+¦           ¦                   ms.js
+¦           ¦                   nl-BE.js
+¦           ¦                   nl.js
+¦           ¦                   no.js
+¦           ¦                   oc.js
+¦           ¦                   pl.js
+¦           ¦                   pt-BR.js
+¦           ¦                   pt.js
+¦           ¦                   ro.js
+¦           ¦                   ru.js
+¦           ¦                   si.js
+¦           ¦                   sk.js
+¦           ¦                   sl.js
+¦           ¦                   sq.js
+¦           ¦                   sr-latn.js
+¦           ¦                   sr.js
+¦           ¦                   sv.js
+¦           ¦                   sw.js
+¦           ¦                   ta.js
+¦           ¦                   tg.js
+¦           ¦                   th.js
+¦           ¦                   tk.js
+¦           ¦                   tr.js
+¦           ¦                   uk.js
+¦           ¦                   uz-cyrl.js
+¦           ¦                   uz-latn.js
+¦           ¦                   vi.js
+¦           ¦                   zh-CN.js
+¦           ¦                   zh-TW.js
+¦           ¦                   
+¦           +---waypoints
+¦               ¦   licenses.txt
+¦               ¦   testem.json
+¦               ¦   
+¦               +---lib
+¦                   ¦   jquery.waypoints.min.js
+¦                   ¦   noframework.waypoints.min.js
+¦                   ¦   waypoints.debug.js
+¦                   ¦   zepto.waypoints.min.js
+¦                   ¦   
+¦                   +---shortcuts
+¦                           infinite.min.js
+¦                           inview.min.js
+¦                           sticky.min.js
+¦                           
++---website
+    ¦   admin.py
+    ¦   apps.py
+    ¦   choices.py
+    ¦   forms.py
+    ¦   models.py
+    ¦   tests.py
+    ¦   urls.py
+    ¦   views.py
+    ¦   __init__.py
+    ¦   
+    +---migrations
+    ¦   ¦   0001_initial.py
+    ¦   ¦   0002_projet.py
+    ¦   ¦   0003_alter_projet_description_client.py
+    ¦   ¦   0004_prospet.py
+    ¦   ¦   0005_alter_client_tel2.py
+    ¦   ¦   0006_alter_prospet_tel2.py
+    ¦   ¦   0007_campagne.py
+    ¦   ¦   0008_client_region.py
+    ¦   ¦   0009_alter_client_adresse.py
+    ¦   ¦   0010_prospet_region.py
+    ¦   ¦   0011_remove_campagne_lieux_campagne_region.py
+    ¦   ¦   0012_conversation_message_conversation_last_message_and_more.py
+    ¦   ¦   0013_alter_conversation_last_message.py
+    ¦   ¦   0014_transaction.py
+    ¦   ¦   0015_campagne_projet_asso.py
+    ¦   ¦   0016_alter_client_domaine_alter_client_projet_client_and_more.py
+    ¦   ¦   0017_projet_progression.py
+    ¦   ¦   0018_alter_client_projet_asso_alter_client_tel_and_more.py
+    ¦   ¦   __init__.py
+    ¦   ¦   
+    ¦   +---__pycache__
+    ¦           0001_initial.cpython-310.pyc
+    ¦           0001_initial.cpython-313.pyc
+    ¦           0002_projet.cpython-310.pyc
+    ¦           0002_projet.cpython-313.pyc
+    ¦           0003_alter_projet_description_client.cpython-310.pyc
+    ¦           0003_alter_projet_description_client.cpython-313.pyc
+    ¦           0004_prospet.cpython-310.pyc
+    ¦           0004_prospet.cpython-313.pyc
+    ¦           0005_alter_client_tel2.cpython-310.pyc
+    ¦           0005_alter_client_tel2.cpython-313.pyc
+    ¦           0006_alter_prospet_tel2.cpython-310.pyc
+    ¦           0006_alter_prospet_tel2.cpython-313.pyc
+    ¦           0007_campagne.cpython-310.pyc
+    ¦           0007_campagne.cpython-313.pyc
+    ¦           0008_client_region.cpython-310.pyc
+    ¦           0008_client_region.cpython-313.pyc
+    ¦           0009_alter_client_adresse.cpython-310.pyc
+    ¦           0009_alter_client_adresse.cpython-313.pyc
+    ¦           0010_prospet_region.cpython-310.pyc
+    ¦           0010_prospet_region.cpython-313.pyc
+    ¦           0011_remove_campagne_lieux_campagne_region.cpython-310.pyc
+    ¦           0011_remove_campagne_lieux_campagne_region.cpython-313.pyc
+    ¦           0012_conversation_message_conversation_last_message_and_more.cpython-310.pyc
+    ¦           0012_conversation_message_conversation_last_message_and_more.cpython-313.pyc
+    ¦           0013_alter_conversation_last_message.cpython-310.pyc
+    ¦           0013_alter_conversation_last_message.cpython-313.pyc
+    ¦           0014_transaction.cpython-310.pyc
+    ¦           0014_transaction.cpython-313.pyc
+    ¦           0015_campagne_projet_asso.cpython-310.pyc
+    ¦           0015_campagne_projet_asso.cpython-313.pyc
+    ¦           0016_alter_campagne_projet_asso.cpython-310.pyc
+    ¦           0016_alter_client_domaine_alter_client_projet_client_and_more.cpython-310.pyc
+    ¦           0016_alter_client_domaine_alter_client_projet_client_and_more.cpython-313.pyc
+    ¦           0017_alter_campagne_projet_asso.cpython-310.pyc
+    ¦           0017_projet_progression.cpython-310.pyc
+    ¦           0017_projet_progression.cpython-313.pyc
+    ¦           0018_alter_campagne_projet_asso.cpython-310.pyc
+    ¦           0018_alter_client_projet_asso_alter_client_tel_and_more.cpython-310.pyc
+    ¦           0018_alter_client_projet_asso_alter_client_tel_and_more.cpython-313.pyc
+    ¦           0019_alter_campagne_projet_asso.cpython-310.pyc
+    ¦           0020_remove_campagne_projet_asso.cpython-310.pyc
+    ¦           __init__.cpython-310.pyc
+    ¦           __init__.cpython-313.pyc
+    ¦           
+    +---templates
+    ¦   ¦   add_friend.html
+    ¦   ¦   campagnes.html
+    ¦   ¦   campagne_fiche.html
+    ¦   ¦   clients.html
+    ¦   ¦   client_fiche.html
+    ¦   ¦   conversation.html
+    ¦   ¦   creer-campagne.html
+    ¦   ¦   creer-client.html
+    ¦   ¦   creer-projet.html
+    ¦   ¦   creer-prospet.html
+    ¦   ¦   creer-transaction.html
+    ¦   ¦   dashboard.html
+    ¦   ¦   friends_list.html
+    ¦   ¦   friend_request.html
+    ¦   ¦   home.html
+    ¦   ¦   map.html
+    ¦   ¦   messages.html
+    ¦   ¦   projets.html
+    ¦   ¦   projet_fiche.html
+    ¦   ¦   prospets.html
+    ¦   ¦   prospet_fiche.html
+    ¦   ¦   rapport_roi.html
+    ¦   ¦   settings.html
+    ¦   ¦   transactions.html
+    ¦   ¦   update_campagne.html
+    ¦   ¦   update_client.html
+    ¦   ¦   update_projet.html
+    ¦   ¦   update_prospet.html
+    ¦   ¦   update_transaction.html
+    ¦   ¦   users_list.html
+    ¦   ¦   
+    ¦   +---charts
+    ¦   +---includes
+    ¦   ¦       footer.html
+    ¦   ¦       navigation.html
+    ¦   ¦       scripts.html
+    ¦   ¦       settings-box.html
+    ¦   ¦       sidebar.html
+    ¦   ¦       
+    ¦   +---layouts
+    ¦           base-fullscreen.html
+    ¦           base.html
+    ¦           
+    +---__pycache__
+            admin.cpython-310.pyc
+            admin.cpython-313.pyc
+            apps.cpython-310.pyc
+            apps.cpython-313.pyc
+            choices.cpython-310.pyc
+            choices.cpython-313.pyc
+            forms.cpython-310.pyc
+            forms.cpython-313.pyc
+            models.cpython-310.pyc
+            models.cpython-313.pyc
+            urls.cpython-310.pyc
+            urls.cpython-313.pyc
+            views.cpython-310.pyc
+            views.cpython-313.pyc
+            __init__.cpython-310.pyc
+            __init__.cpython-313.pyc
+            

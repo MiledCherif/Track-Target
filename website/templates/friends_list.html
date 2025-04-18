@@ -1,0 +1,95 @@
+{% extends "layouts/base.html" %}
+{% block title %} Network {% endblock %} 
+
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                    <a href="/home.html">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="/dashboard.html">Track Target</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Network</li>
+            </ol>
+        </nav>
+        <h1 class="h4">Equipe</h1>
+        <p class="mb-0">Trouvez toute votre équipe ici.</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="{% url 'users_list' %}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+            <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+            Ajouter un ami
+        </a>
+        <div class="btn-group ms-2 ms-lg-3">
+            
+        </div>
+    </div>
+</div>
+  
+<div class="card card-body border-0 shadow table-wrapper table-responsive">
+        <form method="get">
+            <div class="input-group mb-3">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher par nom d'utilisateur">
+                <button type="submit" class="btn btn-outline-gray-600" id="button-addon2">Rechercher</button>
+            </div>
+        </form>
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Statut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for friend in friends %}
+            <tr>
+              <td>
+                <div class="col-auto">
+                    <!-- Avatar -->
+                    <a href="#" class="avatar">
+                {% if friend.profile.profile_image %}
+                    <img class="avatar rounded-circle" alt="Image placeholder" src="{{ friend.profile.profile_image.url }}">
+                {% else %}
+                    <img class="rounded" alt="Image placeholder" src="{% static 'website/img/team/avatar.jpg' %}">
+                {% endif %}
+                    </a></div></td>
+              <td>{{ friend.username }}</td>
+              <td>{{ friend.groups.all.0.name }}</td>
+              <td>
+                <div class="d-flex align-items-center">
+                    <div class="bg-danger dot rounded-circle me-1"></div>
+                    <small>Offline</small>
+                </div>
+              </td>
+              <td>
+                <a href="{% url 'conversation' friend.id %}" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                            <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path></svg>
+                            Message
+                        </a>
+                        <a href="{% url 'delete_friend' friend.id %}" class="btn btn-sm btn-danger d-inline-flex align-items-center">
+                            <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/></svg>
+                            Supprimer
+                        </a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

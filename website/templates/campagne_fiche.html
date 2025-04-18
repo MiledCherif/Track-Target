@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+{% block title %} Campagnes Publicitaire {% endblock %} 
+
+
+{% block content %}
+
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                    <a href="/home.html">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="/dashboard.html">Track Target</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Campagnes Publicitaire</li>
+            </ol>
+        </nav>
+        <h1 class="h4">Page de la campagne</h1>
+        <p class="mb-0">Trouvez tout les détails ici.</p>
+    </div>
+    
+</div>
+
+
+
+
+<div class="card card-body border-0 shadow-sm mb-4">
+  <h1 class="h4 mb-0">{{ campagne.nom }}</h1>
+  <p class="text-muted">{{ campagne.domaine }}</p>
+
+  <h2 class="h5 mb-3">Informations de la campagne</h2>
+  <ul class="list-unstyled">
+    <li><strong>Nom:</strong> {{ campagne.nom }}</li>
+    <li><strong>Domaine d'activité:</strong> {{ campagne.domaine }}</li>
+    <li><strong>Date:</strong> {{ campagne.date }}</li>
+    <li><strong>Jusqu'au:</strong> {{ campagne.duree }}</li>
+    <li><strong>Motif:</strong> {{ campagne.motif }}</li>    
+    <li><strong>Argent mis sur la campagne:</strong> {{ campagne.investissement }}</li>
+  </ul>
+  <h2 class="h5 mb-3">Informations de contact</h2>
+  <ul class="list-unstyled">    
+    <li><strong>Lieux:</strong> {{ campagne.lieux }}</li>
+    <li><strong>En Contact Avec:</strong> {{ campagne.user_asso }}</li>   
+  </ul>
+
+  <h2 class="h5 mb-3">Projets associés</h2>
+  <ul class="list-unstyled">
+    <li><strong>Sur le projet:</strong> {{ campagne.projet_asso }}</li>
+    <li><strong>En Contact Avec:</strong> {{ campagne.user_asso }}</li>    
+    <li><strong>Argent mis sur la campagne:</strong> {{ campagne.investissement }}</li>
+  </ul>
+
+
+
+
+  <br/>
+    <a href="/campagnes.html" title="Page Campagnes"><button type="button" class="btn btn-sm btn-outline-gray-600">Retour</button>
+    <div style="text-align: right;">
+    <a href="{% url 'rapport-roi' campagne.id %}" title="R.O.I"><button type="button" class="btn btn-gray-800 d-inline-flex align-items-center me-2 dropdown-toggle">Générer rapport ROI</button></a>
+    <a href="{% url 'update-campagne' campagne.id %}" title="Modifier"><button type="button" class="btn btn-gray-800 d-inline-flex align-items-center me-2 dropdown-toggle">Modifier</button></a>
+    <a href="{% url 'delete-campagne' campagne.id %}" title="Supprimer"><button type="button" class="btn btn-danger d-inline-flex align-items-center me-2 dropdown-toggle">Supprimer</button></a>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

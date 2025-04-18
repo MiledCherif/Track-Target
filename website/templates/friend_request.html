@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+  <h2>Demande d'amis</h2>
+  <ul>
+  {% for friend_request in friend_requests %}
+    <li>{{ friend_request.from_user.username }} souhaite devenir ami avec vous</li>
+    <a href="{% url 'accept_friend_request' friend_request.id %}">Accepter</a> 
+    <a href="{% url 'reject_friend_request' friend_request.id %}">Refuser</a>
+  {% endfor %}
+  </ul>
+{% endblock %}

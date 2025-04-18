@@ -1,0 +1,472 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% load compress %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %} 
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/volt.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/bootstrap.min.css' %}"> 
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/volt.min.css' %}"> 
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/volt.css.map' %}"> 
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="{% static 'website/img/favicon/icon120.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'website/img/favicon/icon32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'website/img/favicon/icon16.png' %}">
+<link rel="manifest" href="{% static 'website/img/favicon/site.webmanifest' %}">
+<link rel="mask-icon" href="{% static 'website/img/favicon/safari-pinned-tab.svg' %}" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+{% compress css %}
+    <link rel="stylesheet" href="{% static 'website/scss/volt.scss' %}">
+{% endcompress %}
+
+
+{% endblock stylesheets %}
+
+
+
+
+{% block content %}
+
+
+    <div class="py-4">
+  
+            
+
+    </div>
+
+
+
+
+    
+
+
+    <div class="row">
+
+        
+
+
+
+
+
+
+        <div class="col-12 mb-4">
+            <div class="card bg-yellow-100 border-0 shadow">
+                <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+                    <div class="d-block mb-3 mb-sm-0">
+                        <div class="fs-5 fw-normal mb-2" id="titre-vente">Chiffre total des ventes de ce mois</div>
+                        <h2 class="fs-3 fw-extrabold" id="sales-value">${{ total_monthly_sales }}</h2>
+                        <div class="small mt-2">
+                            <span class="fw-normal me-2">Semaine dernière</span>
+                            {% if last_week_percent_change > 0 %}
+                            <span class="fas fa-angle-up text-success"></span>
+                            <span class="text-success fw-bold">{{ last_week_percent_change|floatformat:2 }}%</span>
+                            {% else %}
+                            <span class="fas fa-angle-down text-danger"></span>
+                            <span class="text-danger fw-bold">{{ last_week_percent_change|floatformat:2 }}%</span>
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="d-flex ms-auto">
+                            <a href="#" class="btn btn-secondary text-dark btn-sm me-2" id="month-button">Mois</a>
+                            <a href="#" class="btn btn-dark btn-sm me-3" id="week-button">Semaine</a>
+                        </div>                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    // Écouteur d'événement pour le bouton "Month"
+                    document.getElementById("month-button").addEventListener("click", function(event) {
+                        event.preventDefault();  // Empêcher le comportement par défaut du lien
+                        document.getElementById("sales-value").textContent = "${{ total_monthly_sales }}";
+                        document.getElementById("titre-vente").textContent = "Chiffre total des ventes de ce mois";
+
+                    });
+                
+                    // Écouteur d'événement pour le bouton "Week"
+                    document.getElementById("week-button").addEventListener("click", function(event) {
+                        event.preventDefault();  // Empêcher le comportement par défaut du lien
+                        document.getElementById("sales-value").textContent = "${{ total_weekly_sales }}";
+                        document.getElementById("titre-vente").textContent = "Chiffre total des ventes de cette semaine";
+                    });
+                });
+                </script>
+                
+
+
+
+                <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body">
+                            <div class="row d-block d-xl-flex align-items-center">
+                                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                    <div class="icon-shape icon-shape-primary rounded me-4 me-sm-0">
+                                        <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                                    </div>
+                                    <div class="d-sm-none">
+                                        <h2 class="h5">Customers</h2>
+                                        <h3 class="fw-extrabold mb-1">345,678</h3>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-xl-7 px-xl-0">
+                                    <div class="d-none d-sm-block">
+                                        <a href="#cli">
+                                        <h2 class="h6 text-gray-400 mb-0">Total Clients</h2>
+                                        <h3 class="fw-extrabold mb-2">{{ clients_count }}</h3>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body">
+                            <div class="row d-block d-xl-flex align-items-center">
+                                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                    <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                                        <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="d-sm-none">
+                                        <h2 class="fw-extrabold h5">Total Revenue</h2>
+                                        <h3 class="mb-1">$43,594</h3>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-xl-7 px-xl-0">
+                                    <div class="d-none d-sm-block">
+                                        <h2 class="h6 text-gray-400 mb-0">Total Revenues</h2>
+                                        <h3 class="fw-extrabold mb-2">${{ total_sales }}</h3>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body">
+                            <div class="row d-block d-xl-flex align-items-center">
+                                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                    <div class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0">
+                                        <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="d-sm-none">
+                                        <h2 class="fw-extrabold h5"> Total Transactions</h2>
+                                        <h3 class="mb-1">50.88%</h3>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-xl-7 px-xl-0">
+                                    <div class="d-none d-sm-block">
+                                        <h2 class="h6 text-gray-400 mb-0"> Total Transactions</h2>
+                                        <h3 class="fw-extrabold mb-2">{{ transactions_count }}</h3>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            
+            <div class="chart-container col-6 mb-4">
+                <img src="{% static 'website/charts/' %}{{ weekly_chart_filename }}" alt="Graphique des ventes hebdomadaires">
+            </div>
+            <div class="chart-container col-6 mb-4">
+                <img src="{% static 'website/charts/' %}{{ region_chart_filename }}" alt="Graphique des clients par région">
+            </div>
+            <style> 
+                .chart-container {
+                    float: left;
+                    width: 50%;
+                    box-sizing: border-box;
+                    padding: 10px;
+                }                
+            </style>            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        
+    <div class="row">
+        <div class="col-12 col-xl-8">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col" id="cli">
+                                    <h2 class="fs-5 fw-bold mb-0">Mes Clients</h2>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="/clients.html" class="btn btn-sm btn-primary">Voir</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th class="border-bottom" scope="col">Client</th>
+                                    <th class="border-bottom" scope="col">Region</th>
+                                    <th class="border-bottom" scope="col">Revenue du client</th>
+                                    <th class="border-bottom" scope="col">Pourcentage des revenues</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for client in clients %}
+                                {% if client.user_asso == request.user or client.user_asso in request.user.profile.friends.all %}
+                                <tr>
+                                    <th class="text-gray-900" scope="row">
+                                        {{ client.nom }}
+                                    </th>
+                                    <td class="fw-bolder text-gray-500">
+                                        {{ client.region }}
+                                    </td>
+                                    <td class="fw-bolder text-gray-500">
+                                        {% if client.total_transactions == None %}
+                                        $0
+                                        {% else %}
+                                        ${{ client.total_transactions }}
+                                        {% endif %}
+                                    </td>
+                                    <td class="fw-bolder text-gray-500">
+                                        <div class="d-flex">
+                                            <svg class="icon icon-xs text-danger me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            {% if client.total_transactions == None %}
+                                                0%
+                                            {% else %}
+                                            <script>
+                                                var totalSales = {{ total_sales }};
+                                                var clientTransactions = {{ client.total_transactions }};
+                                                var percentage = (clientTransactions / totalSales) * 100;
+                                                document.write(percentage.toFixed(2) + "%");
+                                            </script>                                                                              
+                                            {% endif %}
+                                        </div>
+                                    </td>                                    
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xxl-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header border-bottom d-flex align-items-center justify-content-between">
+                            <h2 class="fs-5 fw-bold mb-0">Membres Equipe</h2>
+                            <a href="{% url 'friends_list' %}" class="btn btn-sm btn-primary">Voir Tout</a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush list my--3">
+                                {% for friend in friends %}
+                                <li class="list-group-item px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <!-- Avatar -->
+                                            <a href="#" class="avatar">
+                                        {% if friend.profile.profile_image %}
+                                            <img class="avatar rounded-circle" alt="Image placeholder" src="{{ friend.profile.profile_image.url }}">
+                                        {% else %}
+                                            <img class="rounded" alt="Image placeholder" src="{% static 'website/img/team/avatar.jpg' %}">
+                                        {% endif %}
+                                        </a></div>
+
+                                    <div class="col-auto ms--2">
+                                        <h4 class="h6 mb-0">
+                                            <a href="#">{{ friend.username }}</a>
+                                        </h4>
+                                    </div>
+                                    <div class="col text-end">
+                                        <a href="{% url 'conversation' friend.id %}" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                                            <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path></svg>
+                                            Message
+                                        </a>
+                                    </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xxl-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header border-bottom d-flex align-items-center justify-content-between">
+                            <h2 class="fs-5 fw-bold mb-0">Projets track</h2>
+                              <a href="/projets.html" class="btn btn-sm btn-primary">Voir Projets</a>
+                          </div>
+                        <div class="card-body">
+                            <!-- Project 1 -->
+                            {% for projet in projets %}
+                                {% if request.user in projet.membres.all or request.user == projet.createur %}
+                                    <!-- Afficher le projet ici -->
+                                
+                            <div class="row mb-4">
+                                <div class="col-auto">
+                                    <svg class="icon icon-sm text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <div class="col">
+                                    <div class="progress-wrapper">
+                                        <div class="progress-info">
+                                            <div class="h6 mb-0">{{ projet.nom }}</div>
+                                            <div class="small fw-bold text-gray-500"><span>{{ projet.progression }} %</span></div>
+                                        </div>
+                                        <div class="progress mb-0">
+                                            <div class="progress-bar {% if projet.progression < 30 %}bg-danger{% elif projet.progression < 70 %}bg-warning{% else %}bg-success{% endif %}" role="progressbar" aria-valuenow="{{ projet.progression }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ projet.progression }}%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                {% endif %}
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="col-12 px-0 mb-4">
+                <div class="card border-0 shadow">
+                    <div class="card-header d-flex flex-row align-items-center flex-0 border-bottom">
+                        <div class="d-block">
+                            <div class="h6 fw-normal text-gray mb-2">Total Investissement</div>
+                            <h2 class="h5 fw-extrabold">${{ total_investments }}</h2>
+                            <div class="small mt-2">                               
+                                <span class="fas fa-angle-up text-success"></span>                                   
+                                <span class="text-success fw-bold">18.2%</span>
+                            </div>
+                        </div>
+                        <div class="d-block ms-auto">
+                            <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                                <svg class="icon" fill="currentColor" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
+                                    <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
+                                    <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
+                                    <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <img src="{% static 'website/charts/' %}{{ campaign_chart_filename }}" alt="Graphique des campagnes par investissement">
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-12 px-0">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <h2 class="fs-5 fw-bold mb-1">A Voir</h2>
+                        <p>Transactions encore en Attente</p>
+            
+                        {% for transaction in transactions_en_attente %}
+                        {% if transaction.client.user_asso == request.user or transaction.client.user_asso in request.user.profile.friends.all %}
+                        <div class="d-block mb-3"> <!-- Ajout de la classe mb-3 pour la marge inférieure -->
+                            <div class="d-flex align-items-center me-5">
+                                <div class="icon-shape icon-sm icon-shape-danger rounded me-3">
+                                    <svg fill="currentColor" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
+                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                                    </svg>
+                                </div>
+                                <div class="d-block">
+                                    {{ transaction.montant }} $ - Client : {{ transaction.client }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="{% static 'website/js/volt.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock javascripts %}
+

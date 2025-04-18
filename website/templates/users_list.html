@@ -1,0 +1,75 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                    <a href="/home.html">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="/dashboard.html">Track Target</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Network</li>
+            </ol>
+        </nav>
+        <h1 class="h4">Les Utilisateurs</h1>
+        <p class="mb-0">Trouvez tout les utilisateurs ici.</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        
+        <div class="btn-group ms-2 ms-lg-3">
+            <a href="{% url 'friends_list' %}" class="btn btn-sm btn-outline-gray-600">Retour</a>
+        </div>
+        <div class="btn-group ms-2 ms-lg-3">
+            
+        </div>
+    </div>
+</div>
+
+<div class="card card-body border-0 shadow table-wrapper table-responsive">
+    <form method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="q" class="form-control" placeholder="Rechercher par nom d'utilisateur">
+            <button type="submit" class="btn btn-outline-gray-600" id="button-addon2">Rechercher</button>
+        </div>
+    </form>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Add Friend</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>
+            <div class="col-auto">
+                <!-- Avatar -->
+                <a href="#" class="avatar">
+            {% if user.profile.profile_image %}
+                <img class="avatar rounded-circle" alt="Image placeholder" src="{{ user.profile.profile_image.url }}">
+            {% else %}
+                <img class="rounded" alt="Image placeholder" src="{% static 'website/img/team/avatar.jpg' %}">
+            {% endif %}
+        </a></div></td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.groups.all.0.name }}</td>
+          <td>
+            <a href="{% url 'add_friend' user.id %}" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/></svg>
+                Ajouter
+            </a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Messages {% endblock %} 
+
+{% load static %} {% static 'website/' %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/volt.css' %}"> 
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="{% static 'website/img/favicon/icon120.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'website/img/favicon/icon32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'website/img/favicon/icon16.png' %}">
+<link rel="manifest" href="{% static 'website/img/favicon/site.webmanifest' %}">
+<link rel="mask-icon" href="{% static 'website/img/favicon/safari-pinned-tab.svg' %}" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <div class="d-block mb-4 mb-md-0">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+              <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                  <li class="breadcrumb-item">
+                      <a href="#">
+                          <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                      </a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="#">Track Target</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Messages</li>
+              </ol>
+          </nav>
+
+
+
+
+
+
+
+          
+          <h2 class="h4">Messages</h2>
+          <p class="mb-0">Tous vos messages ici.</p>
+      </div>
+      
+
+
+      <div class="d-flex justify-content-between align-items-center pb-2 pt-4 pb-md-4"><div><a href="#friends" class="btn btn-secondary d-inline-flex align-items-center mb-3 mb-md-0"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg> Compose</a></div></div>
+
+
+
+  </div>
+
+
+  
+  <div class="table-settings mb-4">
+      <div class="row align-items-center justify-content-between">
+          <div class="col col-md-6 col-lg-3 col-xl-4">
+              
+          </div>
+          <div class="col-4 col-md-2 col-xl-1 ps-md-0 text-end">
+              
+          </div>
+      </div>
+  </div>
+
+
+  
+  <div class="card card-body border-0 shadow table-wrapper table-responsive">
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th class="border-gray-200">#</th>
+                  <th class="border-gray-200">Ami</th>						
+                  <th class="border-gray-200">Message</th>
+                  <th class="border-gray-200">Date</th>
+                  <th class="border-gray-200">Status</th>
+                  <th class="border-gray-200">Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Item -->
+              {% for message in conversations %}
+              <tr>
+              <td>{{ message.id }}</td>
+              <td>
+                {% if message.user1.username == request.user.username %} 
+                <a href="{% url 'conversation' message.user2.id %}"> 
+                  {{ message.user2.username }}</a>
+                {% else %}
+                <a href="{% url 'conversation' message.user1.id %}"> 
+                  {{ message.user1.username }}</a>
+                {% endif %}
+                </a></td>
+              <td>{{ message.last_message }}</td>
+              <td>{{ message.last_message.timestamp }}</td>
+              <td></td>
+              <td>
+                {% if message.user1.username == request.user.username %}
+                <a href="{% url 'conversation' message.user2.id %}" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path></svg>
+                Message
+                </a>
+                {% else %}
+                <a href="{% url 'conversation' message.user1.id %}" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                  <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path></svg>
+                  Message
+                  </a>
+                {% endif %}
+                <a href="{% url 'delete-conversation' message.id %}" title="Supprimer"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#b40000" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                    </svg> </a>
+
+              </td>
+
+              </tr>
+              {% endfor %}                                
+          </tbody>
+      </table>
+      
+  </div>
+
+
+
+
+
+
+</br>
+  <p class="mb-0">Vous pouvez démarrer des conversations avec vos amis ici.</p>
+
+<div class="bg-white rounded shadow p-5 mb-4 mt-4" id="friends">
+    <div class="row">
+      {% for friend in friends %}
+        {% if forloop.counter0|divisibleby:5 %}
+          </div><div class="row">
+        {% endif %}
+        <div class="col-md-2">
+          <li class="list-group-item {% if friend == current_user %}active{% endif %}">
+            <a href="{% url 'conversation' friend.id %}">
+                {% if friend.profile.profile_image %}
+                    <img class="avatar rounded-circle" alt="Image placeholder" src="{{ friend.profile.profile_image.url }}">
+                {% else %}
+                    <img class="avatar rounded-circle" alt="Image placeholder" src="{% static 'website/img/team/avatar.jpg' %}">
+                {% endif %}
+                {{ friend.username }}
+            </a>
+          </li>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
